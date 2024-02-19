@@ -52,7 +52,7 @@ class Hamburger {
     }
 
     static selectSize() {
-        let addSize = prompt(`Оберіть розмір гамбургера ${String.fromCodePoint(127828)}:\n SMALL - маленький (ціна: ${this.SIZE_SMALL.price} ₮, калорій: ${this.SIZE_SMALL.calories})\n BIG - великий (ціна: ${this.SIZE_BIG.price} ₮, калорій: ${this.SIZE_BIG.calories})`);
+        let addSize = prompt(`Оберіть розмір гамбургера ${String.fromCodePoint(127828)}:\n SMALL - маленький\n(ціна: ${this.SIZE_SMALL.price} ₮, калорій: ${this.SIZE_SMALL.calories})\n BIG - великий\n(ціна: ${this.SIZE_BIG.price} ₮, калорій: ${this.SIZE_BIG.calories})`);
         if (addSize === "SMALL") {
             this.size = Hamburger.SIZE_SMALL;
         } else if (addSize === "BIG") {
