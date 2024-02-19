@@ -53,12 +53,16 @@ class Hamburger {
 
     static selectSize() {
         let addSize = prompt(`Оберіть розмір гамбургера ${String.fromCodePoint(127828)}:\n SMALL - маленький\n(ціна: ${this.SIZE_SMALL.price} ₮, калорій: ${this.SIZE_SMALL.calories})\n BIG - великий\n(ціна: ${this.SIZE_BIG.price} ₮, калорій: ${this.SIZE_BIG.calories})`);
+        (addSize === null) ? addSize : addSize = addSize.toUpperCase();
+        // this.checkNULL(addSize);
+        console.log(addSize);
+        hamburger = new Hamburger(this.size, this.stuffing, this.topping);
         if (addSize === "SMALL") {
             this.size = Hamburger.SIZE_SMALL;
         } else if (addSize === "BIG") {
             this.size = Hamburger.SIZE_BIG;
         } else if (addSize === null) {
-            hamburger = new Hamburger(this.size, this.stuffing, this.topping);
+            console.log(hamburger);
             return `Ви відмінили вибір гамбургера ${String.fromCodePoint(127828)}`;
         } else {
             this.selectSize();
@@ -115,6 +119,8 @@ class Hamburger {
 
     static getEditHamburger() {
         let editHamb = prompt("Хочете щось змінити?\n SIZE - розмір\n STUF - начинка\n TOP - приправи");
+        (editHamb === null) ? editHamb : editHamb = editHamb.toUpperCase();
+        console.log(editHamb);
         switch (editHamb) {
             case "SIZE":
                 this.selectSize();
@@ -170,6 +176,7 @@ class Hamburger {
         }
         return `Містить ${calories} калорій`;
     }
+
 }
 
 if (!hamburger) {
@@ -189,3 +196,4 @@ if (hamburger.size && hamburger.stuffing && hamburger.topping) {
     alert(`Ви обрали ${hamburger.size.name} гамбургер з ${(nameStuffing).join(", ")}${addWord}${(nameTopping).join(", ")}.\n\n ${Hamburger.calculatePrice()}\n ${Hamburger.calculate()}`);
 }
 alert("Дякую за Ваш вибір!\nГарного дня!");
+document.write(`Ваше замовлення: ${hamburger.size.name[0].toUpperCase()}${hamburger.size.name.slice(1)} гамбургер з ${(nameStuffing).join(", ")}${addWord}${(nameTopping).join(", ")}.<br>${Hamburger.calculatePrice()}<br>${Hamburger.calculate()}<br>Смачного!`);
